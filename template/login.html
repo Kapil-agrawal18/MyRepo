@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}login | {% endblock title %}
+
+
+{% block Headers %}
+
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>login-form - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    body {
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 20px;
+  max-width: 600px;
+  height: 380px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 10px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}    </style>
+    
+
+
+{% endblock Headers %}
+
+{% block body %}
+
+<div class="alert alert-primary" role="alert">
+  {% for message in messages %}
+  <p style="font-size:20"> <b> {{message}}  <//b>
+  {% endfor %}
+  </div>
+
+
+    <div id="login">
+     <h3 class="text-center text-white pt-3">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="login" method="POST">
+                        {% csrf_token %}
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="first_name" class="text-info">username(First name):</label><br>
+                                <input type="text" name="first_name" id="first_name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="email-info">email:</label><br>
+                                <input type="email" name="email" id="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="Password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% block title %}Register | {% endblock title %}
+
+
+{% block Headers %}
+<style>
+    body { background-image:url(Mountain-Landscape-Simple-Nature-Background-Image.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    font-family: sans-serif;
+    
+    }
+    
+   
+   form {
+     font-size:100%;
+     padding:2%;
+     border : 1px solid-black;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     margin-right: 15%;
+     margin-left: 15%;
+     background-color:rgb(0,0,0,0.6);
+   } 
+   label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+   span {
+     color:red;
+   }
+</style>
+
+
+<script>
+
+
+  function validateForm() {
+    var x = document.forms["myForm"]["first_name"].value;
+    var y = document.forms["myForm"]["last_name"].value;
+    var e = document.forms["myForm"]["password1"].value;
+    var z = document.forms["myForm"]["mobile"].value;
+    var b = document.forms["myForm"]["country"].value;
+    
+    
+
+    if (x == "") {
+      document.getElementById("set").innerHTML="**please fill the first name";
+      alert("**please fill the first name");
+      return false; }
+      if((x.length <= 2) || (x.length >= 10)) {
+       document.getElementById("set").innerHTML="**first name length must be between 3 to 10 ";
+       alert("**first name length must be between 3 to 10");
+       return false;
+     }
+     if(!isNaN(x)){
+      document.getElementById("set").innerHTML="**only charactors are allowed ";
+      alert("**only charactors are allowed");
+      return false;
+    }
+    if (y == "") {
+      document.getElementById("set2").innerHTML="**please fill the last name";
+      alert("**please fill the last name");
+      return false;
+    }
+    if((y.length <= 2) || (x.length >= 10)) {
+     document.getElementById("set2").innerHTML="**last name length must be between 3 to 10 ";
+     alert("**last name length must be between 3 to 10");
+     return false;
+   }
+
+   if(!isNaN(y)){
+    document.getElementById("set2").innerHTML="**only charactors are allowed ";
+    alert("**only charactors are allowed ");
+    return false;
+  } 
+
+    if(e == "") {
+      document.getElementById('sun').innerHTML="Please fill password";
+      alert("please fill password");
+      return false;
+    }
+    if (e.length<=7) {
+      document.getElementById('sun').innerHTML="Use atleast eight Charactor";
+      alert("**Use atleast eight Charactor");
+      return false;
+    }
+
+    if(isNaN(z)){
+      document.getElementById("set3").innerHTML="**only numbers ";
+      alert("**only numbers ")
+      return false;
+    }
+    if(z.length!=10){
+      document.getElementById("set3").innerHTML="**number not equal to ten ";
+      alert("**number not equal to ten ");
+      return false;
+    }
+    if (b == "") {
+      document.getElementById("set5").innerHTML="**please fill the country";
+      alert("**please fill the country");
+      return false; }
+      
+          
+
+
+
+          }
+        </script>
+
+{% endblock Headers %}
+
+{% block body %}
+
+
+<div class="alert alert-primary" role="alert">
+  {% for message in messages %}
+  <p style="font-size:20"> <b> {{message}}  <//b>
+  {% endfor %}
+  </div>
+
+<form name="myForm" action="index_2" method='POST' onsubmit="return validateForm()">{% csrf_token %}
+            <div style="color: white;" class="p-3 mb-2 bg-dark">
+            <center><h1><u>Registration form</u></h1></center>
+          </div>
+  <div class="container">
+ <div class="row">
+  <div class="col-sm-6">
+     <label style="color: white;"><h4>First name:</h4></label>
+      <input type="text" class="form-control"id="first_name" placeholder="first-name" name="first_name">
+      <span id="set"> </span>
+  </div>
+  <div class="col-sm-6">
+    <label style="color: white"><h4>Last name:</h4></label>
+    <input type="text" class="form-control" id="Last_name" placeholder="Last-name" name="last_name">
+    <span id="set2"> </span> 
+  </div>
+  </div>
+</div>    
+             
+
+              <div style="color: white;">
+            <center><h1><br><u>Gender</u></h1></center>
+            <div class="row">
+              <div class="col-sm-1"></div>
+          <div class="col-sm-4">
+            <h5><br><input  type="radio" id="male" name="gender" value="male" required> Male </input></h5>
+          </div>
+            <br><br>
+          <div class="col-sm-4">
+           <h5><br><input type="radio" id="female" name="gender" value="female" required> female </input></h5>
+          </div>
+            <br><br>
+           <div class="col-sm-3">
+            <h5><br><input type="radio" id="other" name="gender" value="other" required> other </input></h5>
+          </div>
+        </div>
+
+
+          <div class="row">
+            <div class="col-sm-4">
+           <br><br> <label style="color: white"><h3><u>Email Address</u>:</h3></label>
+          </div>
+          <div class="col-sm-8">
+           <br><br> <input type="email" class="form-control" placeholder="email" name="email" required>
+            <span id="set4"> </span>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <br><br> <label style="color: white"><h3><u>Password</u>:</h3></label>
+          </div>
+          <div class="col-sm-8">
+            <br><br> <input type="Password" name="password1" class="form-control" placeholder="********">
+            <span id="sun"> </span>
+          </div>
+          
+        </div>
+
+
+
+          <div class="row">
+            <div class="col-sm-4">
+            <label style="font-size :25px;" for="phone no"><br><u> phone no</u> :</label>
+          </div>
+          <div class="col-sm-1"><br><br>
+          <select style=" height:38px;">
+          <option>+91</option>
+          <option>+62</option>
+          <option>+852</option>
+          <option>655</option>
+          </select>
+
+          </div>
+          <div class="col-sm-7">
+            <br><br> <input type="phone" class="form-control" placeholder="987*******" name="mobile">
+            <span id="set3"> </span>
+          </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <center><h1><br><u> Address</u> </h1></center>
+          </div>
+
+         <div class="row">
+          <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Country" name="country">
+             <span id="set5"> </span>
+           </div>
+              
+
+            <div class="col-sm-4">
+             <input type="text" class="form-control" placeholder="State" name="state">
+              <span id="set6"> </span>
+            </div>
+            
+
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="City" name="city">
+               <span id="set7">    </span>    
+            </div>
+          </div>
+
+            <br><button  style="font-size :20px;" type="submit" value="submit" onclick="validateForm()">submit</button>
+            <button onclick="myfunction()"  style="font-size :20px;" type="reset" value="reset">Reset</button>
+          </div>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+     
+{% endblock body %}

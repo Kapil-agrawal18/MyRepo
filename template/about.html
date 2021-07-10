@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}About|{% endblock title %}
+
+
+{% block Headers %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+ body { background-image:url(/static/images4.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+ }
+
+ sum {
+   font-variant: small-caps;
+ }
+   
+
+</style>
+{% endblock Headers %}
+
+
+{% block body %}
+
+<center style="font-variant: small-caps;color:red"><h1><i><u>StarDust</u></i></h1></center><br>
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<br>
+
+    <div class="container-fluid px-0">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <center><img src="/static/help11.jpg" alt="STARDUST" style="width:100%;height: 420px">
+            <div class="carousel-caption">
+              <h3>STARDUST</h3>
+            </div></center>
+          </div>
+
+          <div class="item">
+            <center><img src="/static/help22.jpg" alt="STARDUST" style="width:100%;height:420px"></center>
+            <div class="carousel-caption">
+              <h3>STARDUST</h3>
+            </div>
+          </div>
+        
+          <div class="item">
+            <center><img src="/static/help333.jpg" alt="STARDUST" style="width:100%;height: 420px"></center>
+            <div class="carousel-caption">
+              <h3>STARDUST</h3>
+            </div>
+          </div>
+
+          <div class="item">
+            <center><img src="/static/help44.jpg" alt="STARDUST" style="width:100%;height: 420px"></center>
+            <div class="carousel-caption">
+              <h3>STARDUST</h3>
+            </div>
+          </div>
+      
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+    <center style="font-variant: small-caps;color:white"><h2><i><u>About</u></i></h2></center>
+    <p style="text-align: center;color: white;font-size: 22px"><b style="font-variant:small-caps;color:red">StarDust</b> is a one stop shop for all your fashion and lifestyle needs. Being India's largest e-commerce store for fashion and lifestyle products,<sum>StarDust</sum> aims at providing a hassle free and enjoyable shopping experience to shoppers across the country with the widest range of brands and products on its portal. The brand is making a conscious effort to bring the power of fashion to shoppers with an array of the latest and trendiest products available in the country.
+    </p>
+    </div>
+</div>
+
+{% endblock body%}
